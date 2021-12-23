@@ -8,6 +8,7 @@
   font-family: Poppins;
   height: 100vh;
 }
+
 .container .header {
   display: flex;
   position: sticky;
@@ -133,7 +134,7 @@ a {
 .botstrp {
   height: 6px;
   background-color: #363636;
-  width: 50%;
+  width: 100%;
   border-radius: 0 50px 50px 0;
 }
 .inner-bg {
@@ -156,4 +157,44 @@ a {
 .ski {
   margin-top: 5px;
   margin-left: 20px;
+}
+.skillz {
+  display: flex;
+  width: 100%;
+}
+.left-side {
+  width: 50%;
+}
+.right-side {
+  display: flex;
+  align-items: flex-end;
+}
+.right-side button {
+  width: 25vw;
+  height: 7vh;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 5px;
+}
+
+/* curve */
+.custom-shape-divider-bottom-1640285506 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640285506 svg {
+  position: relative;
+  display: block;
+  width: calc(152% + 1.3px);
+  height: 52px;
+}
+
+.custom-shape-divider-bottom-1640285506 .shape-fill {
+  fill: #000;
 }

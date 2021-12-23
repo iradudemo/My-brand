@@ -50,6 +50,16 @@ a {
   width: 60%;
   color: #fff;
   height: 70vh;
+  margin-top: -15px;
+  z-index: 1;
+}
+
+.container .main-contents > .big-col1 {
+  background-color: #080808;
+  height: 100%;
+  width: 60%;
+  color: #fff;
+  height: 70vh;
 }
 
 .big-col .sub-big {
@@ -186,6 +196,7 @@ a {
   overflow: hidden;
   line-height: 0;
   transform: rotate(180deg);
+  z-index: -2;
 }
 
 .custom-shape-divider-bottom-1640285506 svg {
@@ -193,10 +204,12 @@ a {
   display: block;
   width: calc(152% + 1.3px);
   height: 52px;
+  z-index: 2;
 }
 
 .custom-shape-divider-bottom-1640285506 .shape-fill {
-  fill: #000;
+  fill: #080808;
+  z-index: -2;
 }
 .sub-big .part2:nth-child(2) {
   display: flex;

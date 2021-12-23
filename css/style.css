@@ -32,6 +32,10 @@ li > img {
   width: 30px;
   height: 30px;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
 .active {
   color: #d6a21f;
   text-decoration: underline;
@@ -66,6 +70,12 @@ li > img {
   padding: 30px 15px 10px 10px;
   border-radius: 10px;
   margin: 0 15% 0 5%;
+}
+.part2 p {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: normal;
 }
 .sub-big button {
   background: #daa520;
@@ -115,4 +125,35 @@ li > img {
 .centa {
   border: 2px solid #daa520;
   margin-top: 40px;
+}
+.html,
+.css,
+.php,
+.js,
+.botstrp {
+  height: 6px;
+  background-color: #363636;
+  width: 50%;
+  border-radius: 0 50px 50px 0;
+}
+.inner-bg {
+  background-color: #daa520;
+  border-radius: 0 50px 50px 0;
+  height: 100%;
+}
+.css .inner {
+  width: 90%;
+}
+.botstrp .inner {
+  width: 70%;
+}
+.php .inner {
+  width: 40%;
+}
+.js .inner {
+  width: 30%;
+}
+.ski {
+  margin-top: 5px;
+  margin-left: 20px;
 }

@@ -23,7 +23,7 @@
   list-style-type: none;
   padding: 0;
   margin-top: 0;
-  margin-right: 50px;
+  margin-right: 5vw;
 }
 .header ul > li {
   margin-left: 10px;
@@ -46,20 +46,18 @@ a {
 }
 .container .main-contents > .big-col {
   background: url('../images/coding.jpg');
-  height: 100%;
   width: 60%;
   color: #fff;
-  height: 70vh;
+  height: 75vh;
   margin-top: -15px;
   z-index: 1;
 }
 
 .container .main-contents > .big-col1 {
   background-color: #080808;
-  height: 100%;
   width: 60%;
   color: #fff;
-  height: 70vh;
+  height: 75vh;
 }
 
 .big-col .sub-big {
@@ -106,9 +104,12 @@ a {
   justify-content: center;
   background-color: #111010;
 }
+.big-col1 .footer {
+  margin-top: 6vh;
+}
 
 .footer p {
-  padding: 20px;
+  padding: 15px;
 }
 .container .main-contents > .small-col {
   width: 40%;
@@ -118,7 +119,7 @@ a {
 .small-col img {
   border-radius: 50%;
   height: 42vh;
-  width: 20vw;
+  width: 42vh;
   margin-top: 25px;
 }
 .sub-small button {
@@ -175,6 +176,9 @@ a {
 .left-side {
   width: 50%;
 }
+.left-side .part2 {
+  margin-left: 60px;
+}
 .right-side {
   display: flex;
   align-items: flex-end;
@@ -184,7 +188,7 @@ a {
   height: 7vh;
   font-size: 16px;
   font-weight: bold;
-  padding: 0px 5px;
+  padding: 5px 5vw;
 }
 
 /* curve */
@@ -211,7 +215,7 @@ a {
   fill: #080808;
   z-index: -2;
 }
-.sub-big .part2:nth-child(2) {
+.skillz .part2:nth-child(2) {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -219,15 +223,72 @@ a {
   width: 30vw;
   border-radius: 10px;
 }
-.part2:nth-child(2) input,
+.part2:nth-child(1) input,
 textarea {
-  margin: 5px 4vw;
+  margin: 5px 0;
   outline: none;
-  width: 20vw;
+  width: 16vw;
   border-radius: 5px;
   border: none;
   padding: 8px;
 }
-.part2:nth-child(2) textarea {
+.part2:nth-child(1) textarea {
   height: 10vh;
+}
+.sub-big1 {
+  display: flex;
+  margin-top: 5vh;
+}
+.sub-big1 div:nth-child(1) {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10vw;
+}
+
+.button {
+  background: #daa520;
+  color: #fff;
+  align-items: center;
+  margin-left: -50px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+.sub-big1 div:nth-child(2) {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.dm1 {
+  display: flex;
+}
+.dm1 p {
+  background-color: #363636;
+  width: 30px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 30px;
+}
+.circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #111010;
+  display: flex;
+  justify-content: center;
+}
+.circle img {
+  width: 50px;
+  height: 50px;
+}
+
+form input,
+button {
+  margin: 5px 0;
+  outline: none;
+  width: 16vw;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 8px;
 }

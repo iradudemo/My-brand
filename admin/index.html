@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/css.css" />
+    <link rel="stylesheet" href="style/font-awesome.min.css" />
+    <title>Admin page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <ul>
+          <li>
+            <a href="#"
+              ><span class="icon"></span
+              ><span class="title"><h2>My Brand</h2></span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"></span><span class="title">Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"> <img src="images/svg/users.svg" /> </span
+              ><span class="title">Users</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"></span><span class="title">Message</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"></span><span class="title">Posts</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"></span><span class="title">Setting</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="icon"></span><span class="title">Sign out</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="top-bar">
+          <div class="toggle" onclick="toggleMenu()"></div>
+          <div class="search">
+            <label for="search">
+              <input type="text" placeholder="Search any thing" id="" />
+              <img
+                src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"
+              />
+            </label>
+          </div>
+          <div class="users">
+            <img src="../images/male1.png" alt="" srcset="" />
+          </div>
+        </div>
+
+        <div class="card-box">
+          <div class="card">
+            <div>
+              <div class="number">15</div>
+              <div class="card-name">Posts</div>
+            </div>
+            <div class="icon-box"></div>
+          </div>
+        </div>
+        <div class="card-box">
+          <div class="card">
+            <div>
+              <div class="number">5</div>
+              <div class="card-name">users</div>
+            </div>
+            <div class="icon-box"></div>
+          </div>
+        </div>
+        <div class="card-box">
+          <div class="card">
+            <div>
+              <div class="number">35</div>
+              <div class="card-name">Comments</div>
+            </div>
+            <div class="icon-box"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.nav');
+        let main = document.querySelector('.main');
+        toggle.classList.toggle('active');
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

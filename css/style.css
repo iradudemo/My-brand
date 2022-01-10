@@ -25,9 +25,18 @@
   margin-top: 0;
   margin-right: 5vw;
 }
-.header ul > li {
+.header .tabs ul > li {
   margin-left: 10px;
-  padding: 0 30px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+.header .tabs ul > li:after {
+  background: #706f6f;
+  transition: all 0.8s;
+}
+.header .tabs ul > li:active:after {
+  transition: 0s;
 }
 li > img {
   width: 30px;
@@ -40,6 +49,9 @@ a {
 .active {
   color: #d6a21f;
   text-decoration: underline;
+}
+.tabs ul li a:hover {
+  color: #018ac9;
 }
 .container .main-contents {
   display: flex;
@@ -134,19 +146,28 @@ a {
   font-weight: 500;
   font-size: 25px;
 }
+button:hover {
+  background-color: #815f07;
+}
 .centa {
   border: 2px solid #daa520;
   margin-top: 40px;
 }
-.html,
-.css,
-.php,
-.js,
-.botstrp {
-  height: 6px;
+.html {
+  height: 30vh;
   background-color: #363636;
   width: 100%;
+  padding-top: 20px;
   border-radius: 0 50px 50px 0;
+  margin-left: 40px;
+}
+.html img {
+  width: 90px;
+  height: 90px;
+}
+.html img:nth-last-child(1) {
+  width: 150px;
+  margin-left: 100px;
 }
 .inner-bg {
   background-color: #daa520;
@@ -377,4 +398,10 @@ span .mda {
   border-radius: 50%;
   border: 1.5px solid #000;
   padding: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .header ul {
+    display: flex;
+    flex-direction: column;
+  }
 }

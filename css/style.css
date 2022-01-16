@@ -428,7 +428,7 @@ span .mda {
 }
 
 .username label {
-  padding-right: 30px;
+  /* padding-right: 30px; */
 }
 .username input {
   margin-left: 2.21vw;
@@ -442,7 +442,7 @@ span .mda {
   border: 1.5px solid #2ecc71;
 }
 .username.success i.fa-check {
-  color: #2ecc71;
+  color: #fdeb45;
   visibility: visible;
 }
 .pwd.error i.fa-times-circle {
@@ -691,7 +691,7 @@ span .mda {
   padding: 3px;
   left: 155px;
   font-size: 8px;
-  background: #fff;
+  background: #018ac9;
 }
 .add-comment .circles {
   color: #fff;
@@ -728,6 +728,23 @@ span .mda {
 @media only screen and (max-width: 600px) {
   .header ul {
     display: flex;
+    flex-direction: column;
+  }
+
+  .container .main-contents {
+    flex-direction: column;
+  }
+
+  .rem i {
+    visibility: hidden;
+  }
+
+  .main-contents .leftz,
+  .middle,
+  .right {
+    width: 100%;
+  }
+  .main-contentz {
     flex-direction: column;
   }
 }

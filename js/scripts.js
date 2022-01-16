@@ -1,21 +1,21 @@
 const loginForm = document.getElementById('loginForm');
-const username = document.getElementById('usernam');
-const password = document.getElementById('pass');
+const usernam = document.getElementById('usernam');
+const passwor = document.getElementById('pass');
 function checkLoginInputs() {
-  const usernameValue = username.value.trim();
-  const passwordValue = password.value.trim();
+  const usernameValue = usernam.value.trim();
+  const passwordValue = passwor.value.trim();
 
   if (usernameValue === '') {
-    setErrorFor(username, "Username can't be empty");
-    username.focus();
+    setErrorFor(usernam, "Username can't be empty");
+    usernam.focus();
   } else {
-    setSuccessFor(username);
+    setSuccessFor(usernam);
   }
   if (passwordValue === '') {
-    setErrorFor(password, "password can't be empty");
+    setErrorFor(passwor, "password can't be empty");
     password.focus();
   } else {
-    setSuccessFor(password);
+    setSuccessFor(passwor);
   }
 }
 function setErrorFor(input, message) {
@@ -39,7 +39,7 @@ loginForm.addEventListener('submit', (e) => {
 
 function loginFunc(e) {
   event.preventDefault();
-  var username = document.getElementById('usernam').value;
+  var usernam = document.getElementById('usernam').value;
   var password = document.getElementById('pwd').value;
   var errorMsg = document.getElementById('errorMsg').value;
 
@@ -49,7 +49,7 @@ function loginFunc(e) {
 
   if (user == null) {
     errorMsg.innerText = 'Wrong username';
-  } else if (username == data.username && password == data.password) {
+  } else if (usernam == data.username && password == data.password) {
     errorMsg.innerHTML = 'logged in';
   } else {
     errorMsg.innerHTML = 'wrong password';

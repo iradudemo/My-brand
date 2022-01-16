@@ -120,12 +120,10 @@
             <span>Login</span>
             <div class="login">
               <form id="loginForm" onsubmit="">
-                <div class="username error">
-                  <label for="username">usern</label>
+                <div class="username">
+                  <label for="username">username</label>
                   <input type="text" id="usernam" placeholder="Email" />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
+                  <small style="display: block"></small>
                 </div>
 
                 <div class="pwd">
@@ -136,9 +134,7 @@
                     id="pass"
                     placeholder="Password"
                   />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
+                  <small style="display: block"></small>
                 </div>
                 <button onclick="">
                   <span>Login</span>
@@ -218,12 +214,14 @@
       //we will store list of users signed up in a key of signedUpUsers key in localstorage
       const emailFormats =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+      // const usernameFormat = /^[a-zA-Z0-9]+$/;
       window.onload = () => {
         const checkUserLoginStatus = () => {
           if (localStorage.loggedInUser) {
             if (localStorage.loggedInUser.username.trim() != '') {
               console.log(localStorage.loggedInUser);
-              alert('user already logged in');
+              // alert('user already logged in'); // removed temporary
             } else {
               //username can not be empty
               //so, clear everything for our loggedInUser obj
@@ -279,7 +277,11 @@
         if (usernameValue === '') {
           setErrorFor(username, "Username can't be empty");
           username.focus();
-        } else {
+        }
+        //  else if (!isUsername(usernameValue)) {
+        //   setErrorFor(username, 'start with char. no special char');
+        // }
+        else {
           setSuccessFor(username);
         }
         if (passwordValue === '') {
@@ -315,6 +317,9 @@
       function isEmail(email) {
         return emailFormats.test(email);
       }
+      // function isUsername() {
+      //   return usernameFormat.test(username);
+      // }
       signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
         checkInputs();
@@ -362,7 +367,7 @@
             }
           }
           if (found) {
-            alert('username already exists!');
+            // alert('username already exists!');
           } else {
             //save new user
             //step 1
@@ -378,7 +383,7 @@
             localStorage.setItem('signedUpUsers', arrayTobeSaved);
             //reset the form
             document.getElementById('signupForm').reset();
-            alert('signed up successful');
+            // alert('signed up successful');
           }
         } else {
           //means we dont have other users who signed up before.
@@ -403,7 +408,7 @@
 
           //reset the form (final step)
           document.getElementById('signupForm').reset();
-          alert('signed up successful');
+          // alert('signed up successful');
         }
       });
 

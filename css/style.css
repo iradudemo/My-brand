@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
 }
-
 .container {
   background-color: #080808;
   width: 100%;
@@ -111,10 +114,14 @@ a {
   font-size: 25px;
 }
 .footer {
-  display: flex;
-
+  /* display: flex; */
+  position: absolute;
+  padding: 0.02vw 17vw;
+  bottom: 5px;
   justify-content: center;
   background-color: #111010;
+
+  color: #fff;
 }
 .big-col1 .footer {
   margin-top: 6vh;
@@ -133,6 +140,9 @@ a {
   height: 42vh;
   width: 42vh;
   margin-top: 25px;
+}
+.small-col .sub-small {
+  margin-top: 6vh;
 }
 .sub-small button {
   background: #daa520;
@@ -260,7 +270,7 @@ textarea {
   display: flex;
   margin-top: 5vh;
 }
-.sub-big1 div:nth-child(1) {
+.sub-big1 .auth-design {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -276,7 +286,7 @@ textarea {
   font-size: 16px;
   padding: 5px 15px;
 }
-.sub-big1 div:nth-child(2) {
+.sub-big1 div.dm1 {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -399,6 +409,322 @@ span .mda {
   border: 1.5px solid #000;
   padding: 5px;
 }
+
+.sub-small .login {
+  color: #fff;
+}
+.sub-small span {
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.sub-small .login form {
+  display: flex;
+  flex-direction: column;
+  background-color: #111010;
+  padding: 20px;
+}
+
+.username label {
+  padding-right: 30px;
+}
+.username input {
+  margin-left: 2.21vw;
+  font-size: 0.9vw;
+}
+
+.error-msg {
+  visibility: hidden;
+}
+.username.success input {
+  border: 1.5px solid #2ecc71;
+}
+.username.success i.fa-check {
+  color: #2ecc71;
+  visibility: visible;
+}
+.pwd.error i.fa-times-circle {
+  color: red;
+  visibility: visible;
+}
+.pwd.error input {
+  border: 1px solid red;
+}
+.pwd.error .error-msg {
+  color: red;
+  visibility: visible;
+}
+
+.pwd input {
+  margin-left: 2vw;
+  font-size: 0.9vw;
+}
+.sub-small .login form .pwd {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.sub-small .login span a {
+  color: #0000ff;
+}
+.sub-small .login form button {
+  position: relative;
+  height: 20px;
+  margin-left: 8vw;
+  margin-top: 0;
+}
+.sub-small .login form button span {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  font-size: 20px;
+}
+/* Social links */
+.button-block {
+  position: absolute;
+
+  bottom: 5px;
+  background: #daa520;
+  padding: 0 1.2rem;
+  border-radius: 1.2rem;
+}
+
+/* - social media  */
+.social {
+  display: inline-block;
+  margin: 30px 15px;
+  cursor: pointer;
+}
+.social a {
+  display: block;
+  background: rgba(0, 0, 0, 1);
+  padding: 10px;
+  position: relative;
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.social a:hover {
+  transform: perspective(1000px) rotate(-30deg) skew(25deg)
+    translate(20px, -20px);
+  box-shadow: -50px 50px 30px rgba(0, 0, 0, 0.5);
+}
+
+.social a i {
+  color: rgba(256, 256, 256, 1);
+  font-size: 15pt;
+}
+.rem {
+  color: #e2e2e2;
+  display: flex;
+  align-items: center;
+}
+
+.rem i {
+  font-size: 20vw;
+}
+.form-control i {
+  position: absolute;
+  margin-top: -30px;
+  color: #000;
+  left: 340px;
+
+  visibility: hidden;
+}
+.form-control.success i.fa-check {
+  color: #2ecc71;
+  visibility: visible;
+}
+.form-control.error i.fa-times-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+.form-control.error small {
+  color: #e74c3c;
+  visibility: visible;
+}
+.form-control small {
+  visibility: hidden;
+}
+.form-control input {
+  border: 2px solid #e3e3e3;
+}
+.form-control.success input {
+  border-color: #2ecc71;
+}
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+.username i {
+  position: absolute;
+  top: 175px;
+  right: 110px;
+  visibility: hidden;
+}
+
+.pwd i {
+  position: absolute;
+  right: 8vw;
+  top: 40vh;
+}
+
+.main-contentz {
+  display: flex;
+  width: 100%;
+  background-color: #080808;
+  height: 150vh;
+  color: #e2e2e2;
+}
+.main-contentz .main-main {
+  width: 75%;
+  margin-top: 4rem;
+  height: 50vh;
+}
+.main-contentz .footer {
+  display: flex;
+  position: absolute;
+  padding: 0.02vw 17vw;
+  bottom: -60vh;
+  justify-content: center;
+  background-color: #111010;
+
+  color: #fff;
+}
+.main-contentz .main-main .image-content {
+  width: 80%;
+  height: 100%;
+  margin: 0 10%;
+}
+.main-contentz .main-main .image-content span {
+  background: rgba(255, 201, 65, 0.4);
+  padding: 5px 7.5rem;
+  position: absolute;
+  top: 23vh;
+  left: 340px;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #fff;
+}
+.main-contentz .main-main .image-content img {
+  height: 100%;
+  object-fit: cover;
+}
+.main-main .image-content .blog-body {
+  color: #fff;
+  background: #111010;
+  width: 90%;
+  padding: 5px 10px;
+  font-size: 0.9vw;
+  font-weight: 300;
+}
+.main-main .image-content p.blog-body {
+  text-align: justify;
+}
+.main-contentz .comment-section {
+  width: 25%;
+  color: #fff;
+  margin-top: 4rem;
+  margin-right: 25px;
+}
+.main-contentz .comment-section .comment-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-contentz .comment-section .comment-title span:nth-last-child(1) {
+  background: #c4c4c4;
+  color: #000;
+  padding: 3px 15px;
+  border-radius: 20px;
+  margin-right: 25px;
+}
+.comment-section .comment-body .cmt {
+  color: #fff;
+  display: flex;
+  padding-top: 10px;
+}
+.comment-section .comment-body .cmt span:last-child {
+  background: #2b2929;
+  color: white;
+  width: 70%;
+  padding: 5px 7px;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+.comment-body .rply-btn {
+  background: #363636;
+  width: fit-content;
+  padding: 0 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  position: absolute;
+  right: 50px;
+}
+
+.add-comment {
+}
+
+.add-comment .like-comment {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.like-comment i {
+  font-size: 15pt;
+  color: #fff;
+  padding: 5px 17px;
+}
+.like-comment a.cir1 {
+  position: absolute;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 8px;
+  background: #018ac9;
+}
+.like-comment a.cir2 {
+  position: absolute;
+  border: 1px solid #fff;
+  border-radius: 50% !important;
+  padding: 3px;
+  left: 155px;
+  font-size: 8px;
+  background: #fd03c7;
+}
+.add-comment .circles {
+  color: #fff;
+}
+.add-comment .circles .cir1 {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #010101;
+  display: relative;
+  position: absolute;
+  top: 900px;
+}
+
+.add-comment textarea {
+  width: 25vw;
+  height: 15vh;
+  font-size: 0.9rem;
+}
+.add-comment button {
+  display: block;
+  font-size: 20px;
+  width: 15vw;
+  margin-left: 10vw;
+}
+
+#contactForm .part2 span {
+  color: red;
+  font-size: 15px;
+}
+/* .rply-btn {
+  display: flex;
+} */
+/* So{cial links */
 @media only screen and (max-width: 600px) {
   .header ul {
     display: flex;

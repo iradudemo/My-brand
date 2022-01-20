@@ -1,3 +1,19 @@
+const navigator = document.querySelector('.navigator');
+const toggle = document.querySelector('.moblie-toggle');
+
+toggle.addEventListener('click', () => {
+  const visible = navigator.getAttribute('data-visible');
+
+  if (visible === 'false') {
+    navigator.setAttribute('data-visible', true);
+    toggle.setAttribute('aria-expanded', true);
+  } else if (visible === 'true') {
+    navigator.setAttribute('data-visible', false);
+    toggle.setAttribute('aria-expanded', false);
+  }
+  console.log(visible);
+});
+
 const loginForm = document.getElementById('loginForm');
 const usernam = document.getElementById('usernam');
 const passwor = document.getElementById('pass');

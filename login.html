@@ -53,30 +53,43 @@
                 onsubmit="event.preventDefault();"
               >
                 <div class="form-control">
-                  <input type="text" id="fname" placeholder="First name" />
+                  <label for="firstname">Firstname</label>
+                  <input
+                    type="text"
+                    id="fname"
+                    placeholder="Enter First name"
+                  />
                   <i class="fa fa-check"></i>
                   <i class="fa fa-times-circle"></i>
                   <small></small>
                 </div>
                 <div class="form-control">
-                  <input type="text" id="lname" placeholder="Last name" />
+                  <label for="Lastname">Lastname</label>
+                  <input type="text" id="lname" placeholder="Enter Last name" />
                   <i class="fa fa-check"></i>
                   <i class="fa fa-times-circle"></i>
                   <small></small>
                 </div>
                 <div class="form-control">
+                  <label for="email">Email</label>
                   <input type="email" id="email" placeholder="Email" />
                   <i class="fa fa-check"></i>
                   <i class="fa fa-times-circle"></i>
                   <small></small>
                 </div>
                 <div class="form-control">
-                  <input type="text" id="username" placeholder="Username" />
+                  <label for="Isername">Username</label>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter Username"
+                  />
                   <i class="fa fa-check"></i>
                   <i class="fa fa-times-circle"></i>
                   <small></small>
                 </div>
                 <div class="form-control">
+                  <label for="Password">Password</label>
                   <input
                     type="password"
                     name="pwd"
@@ -88,6 +101,7 @@
                   <small></small>
                 </div>
                 <div class="form-control">
+                  <label for="cpwd">Confirm Password</label>
                   <input
                     type="password"
                     name="pwd"
@@ -119,10 +133,14 @@
           <div class="sub-small">
             <span>Login</span>
             <div class="login">
-              <form id="loginForm" onsubmit="">
+              <form id="loginForm" method="post">
                 <div class="username">
                   <label for="username">username</label>
-                  <input type="text" id="usernam" placeholder="Email" />
+                  <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="username"
+                  />
                   <small style="display: block"></small>
                 </div>
 
@@ -130,8 +148,7 @@
                   <label for="password">Password</label>
                   <input
                     type="password"
-                    name="pwd"
-                    id="pass"
+                    id="loginPassword"
                     placeholder="Password"
                   />
                   <small style="display: block"></small>
@@ -228,7 +245,7 @@
               localStorage.removeItem('loggedInUser');
             }
           } else {
-            console.log('No user who is logged in logged in');
+            console.log('No user who is logged');
           }
         };
       };
@@ -248,35 +265,40 @@
       function checkInputs() {
         const fnameValue = fname.value;
         const lnamevalue = lname.value;
-        const emailValue = email.value.trim();
-        const usernameValue = username.value.trim();
-        const passwordValue = password.value.trim();
-        const cPasswordValue = cPassword.value.trim();
+        const emailValue = email.value;
+        const usernameValue = username.value;
+        const passwordValue = password.value;
+        const cPasswordValue = cPassword.value;
 
-        if (fnameValue === '') {
+        if (fnameValue.trim() === '') {
           setErrorFor(fname, "First name can't be  empty");
           fname.focus();
+          return false;
         } else {
           setSuccessFor(fname);
         }
-        if (lnamevalue === '') {
+        if (lnamevalue.trim() === '') {
           setErrorFor(lname, "Second name can't be empty");
           lname.focus();
+          return false;
         } else {
           setSuccessFor(lname);
         }
-        if (emailValue === '') {
+        if (emailValue.trim() === '') {
           setErrorFor(email, "email can't be empty");
           email.focus();
+          return false;
         } else if (!isEmail(emailValue)) {
           setErrorFor(email, 'type valid Email');
           email.focus();
+          return false;
         } else {
           setSuccessFor(email);
         }
         if (usernameValue === '') {
           setErrorFor(username, "Username can't be empty");
           username.focus();
+          return false;
         }
         //  else if (!isUsername(usernameValue)) {
         //   setErrorFor(username, 'start with char. no special char');
@@ -287,19 +309,25 @@
         if (passwordValue === '') {
           setErrorFor(password, "password can't be empty");
           password.focus();
+          return false;
         } else {
           setSuccessFor(password);
         }
         if (cPasswordValue === '') {
           setErrorFor(cPassword, "Password can't be empty");
           cPassword.focus();
+          return false;
         } else if (passwordValue !== cPasswordValue) {
           setErrorFor(cPassword, 'Passwords not match');
           cPassword.focus();
+          return false;
         } else {
           setSuccessFor(cPassword);
         }
+
+        return true;
       }
+
       function setErrorFor(input, message) {
         const formControl = input.parentElement; //  here the parennnt is .form-control
         const small = formControl.querySelector('small');
@@ -322,93 +350,82 @@
       // }
       signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        checkInputs();
-        //here
-        //I am assuming that you have made all the validations
-        //for signupForm
-        //i.e. you might need to change some codes a litle bit
-        //so that the submission matches the validation.
+        if (checkInputs()) {
+          const newUser = {
+            fname: fname.value,
+            lname: lname.value,
+            email: email.value,
+            username: username.value,
+            password: password.value,
+          };
 
-        //lets begin
-        //the first this is to capture all input fields.
-        //if you have done so, (previously in validation) check if valiables and ids match.
+          //on line below, we are making some checking to avoid errors
+          if (localStorage.signedUpUsers) {
+            //mean there are other users who have previously signed up
+            //we cant errase them
+            //we are going to add the new user to them.
 
-        //! formulate all the above that in our expected user obj to be saved in signedUpUsers
+            ////step 1
+            //check if user already exists in our local storage
+            //step1.1
+            //get signedup users.
+            const signedUpUsers = JSON.parse(
+              localStorage.getItem('signedUpUsers')
+            );
 
-        const newUser = {
-          fname: fname.value,
-          lname: lname.value,
-          email: email.value,
-          username: username.value,
-          password: password.value,
-        };
-
-        //on line below, we are making some checking to avoid errors
-        if (localStorage.signedUpUsers) {
-          //mean there are other users who have previously signed up
-          //we cant errase them
-          //we are going to add the new user to them.
-
-          ////step 1
-          //check if user already exists in our local storage
-          //step1.1
-          //get signedup users.
-          const signedUpUsers = JSON.parse(
-            localStorage.getItem('signedUpUsers')
-          );
-
-          //step 1.2
-          //check if user exist in returned array
-          let found = false;
-          for (let i = 0; i < signedUpUsers.length; i++) {
-            if (signedUpUsers[i].username == newUser.username) {
-              found = true;
-              break;
+            //step 1.2
+            //check if user exist in returned array
+            let found = false;
+            for (let i = 0; i < signedUpUsers.length; i++) {
+              if (signedUpUsers[i].username == newUser.username) {
+                found = true;
+                break;
+              }
             }
-          }
-          if (found) {
-            // alert('username already exists!');
+            if (found) {
+              alert('username already exists!');
+            } else {
+              //save new user
+              //step 1
+              //add new user to other users we have
+              signedUpUsers.push(newUser);
+
+              //step 2
+              //stringfy the arra
+              const arrayTobeSaved = JSON.stringify(signedUpUsers);
+
+              //step 3
+              //save the users arry into localstorage
+              localStorage.setItem('signedUpUsers', arrayTobeSaved);
+              //reset the form
+              document.getElementById('signupForm').reset();
+              alert('signed up successful');
+            }
           } else {
-            //save new user
+            //means we dont have other users who signed up before.
+            //lets save our new user.
+            //remember
+            //signedUpUsers must me an array
+            //and it is impossible to store arrays in local storage
+            //i.e. all local storage values and keys must be strings.
+            //so, we will create an array and convert it into a string.
+
             //step 1
-            //add new user to other users we have
-            signedUpUsers.push(newUser);
+            //create an array and add new user
+            const myArray = [newUser];
 
             //step 2
-            //stringfy the arra
-            const arrayTobeSaved = JSON.stringify(signedUpUsers);
+            //stringfy the myArray
+            const arrayTobeSaved = JSON.stringify(myArray);
 
             //step 3
-            //save the users arry into localstorage
+            //save the user arry into localstorage
             localStorage.setItem('signedUpUsers', arrayTobeSaved);
-            //reset the form
+
+            //reset the form (final step)
             document.getElementById('signupForm').reset();
-            // alert('signed up successful');
+            alert('signed up successful');
           }
-        } else {
-          //means we dont have other users who signed up before.
-          //lets save our new user.
-          //remember
-          //signedUpUsers must me an array
-          //and it is impossible to store arrays in local storage
-          //i.e. all local storage values and keys must be strings.
-          //so, we will create an array and convert it into a string.
-
-          //step 1
-          //create an array and add new user
-          const myArray = [newUser];
-
-          //step 2
-          //stringfy the myArray
-          const arrayTobeSaved = JSON.stringify(myArray);
-
-          //step 3
-          //save the user arry into localstorage
-          localStorage.setItem('signedUpUsers', arrayTobeSaved);
-
-          //reset the form (final step)
-          document.getElementById('signupForm').reset();
-          // alert('signed up successful');
         }
       });
 
@@ -421,6 +438,49 @@
       //TODO 2
       //how to logout?
       //simply clear loggedInUser key form localstorage.
+
+      document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('loginUsername');
+        const password = document.getElementById('loginPassword');
+        const oldSignedUpUsers = JSON.parse(
+          localStorage.getItem('loggedInUser')
+        );
+        if (oldSignedUpUsers) {
+          alert(
+            'Already logged in as ' +
+              oldSignedUpUsers.username +
+              '\nYou must logout inorder to continue'
+          );
+        } else if (username.value.trim() != '' && password.value.trim() != '') {
+          const signedUpUsers = JSON.parse(
+            localStorage.getItem('signedUpUsers')
+          );
+          let found = false;
+          for (let i = 0; i < signedUpUsers.length; i++) {
+            if (
+              signedUpUsers[i].username == username.value &&
+              signedUpUsers[i].password == password.value
+            ) {
+              found = true;
+              break;
+            }
+          }
+          if (found) {
+            const loggedInUser = {
+              username: username.value,
+              password: password.value,
+            };
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+            alert('logged in successfull');
+            window.location('blog.html');
+          } else {
+            alert('Invalid username or password');
+          }
+        } else {
+          username.focus();
+        }
+      });
     </script>
   </body>
 </html>

@@ -16,7 +16,7 @@
       <div class="nav">
         <ul>
           <li>
-            <a href="index.html"
+            <a href="#"
               ><span class="icon"></span
               ><span class="title"><h2>My Brand</h2></span></a
             >
@@ -40,7 +40,7 @@
             >
           </li>
           <li>
-            <a href="post.html"
+            <a class="current" href="#"
               ><span class="icon"><i class="fa fa-newspaper-o"></i></span
               ><span class="title">Posts</span></a
             >
@@ -146,24 +146,6 @@
                   <td>Kigali Iraka</td>
                   <td>Jean Claude</td>
                   <td>78</td>
-                  <td><span class="status approved">approved</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status approved">approved</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status approved">approved</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
                   <td><span class="status rejected">Rejected</span></td>
                 </tr>
                 <tr>
@@ -207,92 +189,36 @@
           </div>
           <div class="recent-users">
             <div class="cardHeader">
-              <h2>Active users</h2>
+              <h2>Create a Post</h2>
             </div>
-            <table>
-              <tbody>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Claude<br /><span>Rwanda</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Claude<br /><span>Rwanda</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Claude<br /><span>Rwanda</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Nyaramataza<br /><span>Burundi</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Kibobo<br /><span>Ugandan</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>kamati<br /><span>Tanzania</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Claude<br /><span>Rwanda</span></h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="60px">
-                    <div class="image-box">
-                      <img src="../images/jeanClaude-219009264.jpg" />
-                    </div>
-                  </td>
-                  <td>
-                    <h4>Claude<br /><span>Rwanda</span></h4>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="new-post">
+              <form>
+                <div class="form-control">
+                  <label for="title">Title</label>
+                  <input type="text" id="PostTitle" placeholder="Post title" />
+                </div>
+                <div class="form-control">
+                  <label for="title">Description</label>
+                  <textarea
+                    id="postDescription"
+                    placeholder="Post description"
+                  ></textarea>
+                </div>
+                <div class="upload">
+                  <input type="button" class="uploadButton" value="Browse" />
+                  <input
+                    type="file"
+                    name="upload"
+                    accept="image/*"
+                    id="imageUpload"
+                  />
+                  <span class="fileName">Select file..</span>
+                </div>
+                <input type="button" class="uploadButton" value="Upload File" />
+
+                <button type="submit">Create a post</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

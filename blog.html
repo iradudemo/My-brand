@@ -43,7 +43,7 @@
           </svg>
         </div>
       </div>
-      <div class="main-contents">
+      <div class="main-contents" id="blogPostContainer">
         <div class="leftz">
           <img src="images/book.jpeg" alt="left image" />
           <span class="title">BOOK</span>
@@ -54,26 +54,7 @@
           </p>
           <button><a href="blog-details.html">read more</a></button>
         </div>
-        <div class="middle">
-          <img src="images/code.jpeg" alt="middle image" />
-          <span>Processor</span>
-          <p>
-            Pellentesque varius molestie sem scelerisque aliquam. Sed ultricies
-            dolor non arcu viverra, in vestibulum nunc finibus. Etiam lorem
-            nisi, tempor ....
-          </p>
-          <button>read more</button>
-        </div>
-        <div class="right">
-          <img src="images/notes.jpeg" alt="left image" />
-          <span>Notes</span>
-          <p>
-            Pellentesque varius molestie sem scelerisque aliquam. Sed ultricies
-            dolor non arcu viverra, in vestibulum nunc finibus. Etiam lorem
-            nisi, tempor ....
-          </p>
-          <button>read more</button>
-        </div>
+
         <div class="rem">
           <i class="fa fa-caret-right" aria-hidden="true"></i>
         </div>
@@ -82,5 +63,50 @@
         <div class="footer"><p>Jean Claude Iradukunda @2021</p></div>
       </div>
     </div>
+
+    <script>
+      window.onload = () => {
+        //get blogs
+        const blogPostContainer = document.getElementById("blogPostContainer");
+        if (localStorage.getItem("blogs")) {
+          const blogs = JSON.parse(localStorage.getItem("blogs"));
+          blogPostContainer.innerHTML = "";
+          for (let i = 0; i < blogs.length; i++) {
+            const post = `
+              <div class="leftz">
+                <img src="images/${blogs[i].image}" alt="left image" />
+                <span class="title">${blogs[i].title}</span>
+                <p>${blogs[i].description}</p>
+                <button><a href="blog-details.html#blog${i}">read more</a></button>
+              </div>
+            `;
+            blogPostContainer.innerHTML = blogPostContainer.innerHTML + post;
+          }
+        } else {
+          blogPostContainer.innerHTML =
+            "<p style='color:white'>No blog posts found</p>";
+        }
+      };
+
+      // //create a sample post
+      // const createSamplePost = () => {
+      //   const blogs = [
+      //     {
+      //       title: "book1",
+      //       image: "book.jpeg",
+      //       description: "this is a testing blog1",
+      //       comments: [{ username: "testing username", comment: "good book" }],
+      //     },
+      //     {
+      //       title: "book2",
+      //       image: "book.jpeg",
+      //       description: "this is a testing blog1",
+      //       comments: [],
+      //     },
+      //   ];
+      //   localStorage.setItem("blogs", JSON.stringify(blogs));
+      // };
+      // createSamplePost();
+    </script>
   </body>
 </html>

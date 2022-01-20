@@ -45,28 +45,7 @@
       <div class="main-contentz">
         <div class="main-main">
           <div class="image-content">
-            <img src="images/book.jpeg" alt="image" />
-            <span class="title">BOOK</span>
-            <p class="blog-body">
-              Pellentesque varius molestie sem scelerisque aliquam. Sed
-              ultricies dolor non arcu viverra, in vestibulum nunc finibus.
-              Etiam lorem nisi, tempor Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum. On the other hand, we
-              denounce with righteous indignation and dislike men who are so
-              beguiled and demoralized by the charms of pleasure of the moment,
-              so blinded by desire, that they cannot foresee the pain and
-              trouble that are bound to ensue; and equal blame belongs to those
-              who fail in their duty through weakness of will, which is the same
-              as saying through shrinking from toil and pain. These cases are
-              perfectly simple and easy to distinguish. In a free hour, when our
-              power of choice is untrammelled and when
-            </p>
+            <div id="blogContents"></div>
 
             <div class="add-comment">
               <div class="like-comment">
@@ -75,30 +54,19 @@
                 <i class="fa fa-comment-o" aria-hidden="true"></i>
                 <a class="cir2">20</a>
               </div>
-              <textarea id="" placeholder="Write your comment">
+              <textarea id="newComment" placeholder="Write your comment">
 write your comment
               </textarea>
-              <button>Comment</button>
+              <button onclick="saveComment()">Comment</button>
             </div>
           </div>
         </div>
 
         <div class="comment-section">
           <div class="comment-title">
-            <span>Comment</span><span>View All</span>
+            <span id="commentsLength">Comments</span>
           </div>
-          <div class="comment-body">
-            <div class="cmt">
-              <span
-                ><img src="images/icons/male_user.png" alt="profile"
-              /></span>
-              <span>
-                <h5>Bosco Sinzi</h5>
-                <p>Nice story!</p>
-              </span>
-            </div>
-            <div class="rply-btn">Reply</div>
-          </div>
+          <div class="comment-body" id="commentsList"></div>
         </div>
         <div class="footer"><p>Jean Claude Iradukunda @2021</p></div>
         <!-- <div class="button-block">
@@ -136,5 +104,95 @@ write your comment
         </div> -->
       </div>
     </div>
+
+    <script>
+      window.onload = () => {
+        let hash = window.location.hash;
+        let blogId = hash.replaceAll("#blog", "");
+        const blogContents = document.getElementById("blogContents");
+        if (localStorage.getItem("blogs")) {
+          const blogs = JSON.parse(localStorage.getItem("blogs")); // it should be an array
+          if (blogs[blogId]) {
+            const content = `
+            <img src="images/${blogs[blogId].image}" alt="image" />
+            <span class="title">${blogs[blogId].title}</span>
+            <p class="blog-body">
+              ${blogs[blogId].description}
+            </p>
+            `;
+            blogContents.innerHTML = content;
+            displayCommentsLength(blogs[blogId]);
+            displayComments(blogs[blogId]);
+          } else {
+            blogContents.innerHTML = '<p style="color:white">Invalid link</p>';
+          }
+        } else {
+          blogContents.innerHTML = '<p style="color:white">No blogs found</p>';
+        }
+      };
+
+      const displayCommentsLength = (blog) => {
+        document.getElementById(
+          "commentsLength"
+        ).innerHTML = `${blog.comments.length} comments`;
+      };
+
+      const displayComments = (blog) => {
+        const commentsList = document.getElementById("commentsList");
+        commentsList.innerHTML = "";
+        if (blog.comments.length > 0) {
+          for (let i = 0; i < blog.comments.length; i++) {
+            const singleComment = `
+            <div class="cmt">
+              <span
+                ><img src="images/icons/male_user.png" alt="profile"
+              /></span>
+              <span>
+                <h5>${blog.comments[i].username}</h5>
+                <p>${blog.comments[i].comment}</p>
+              </span>
+            </div>
+            `;
+            commentsList.innerHTML += singleComment;
+          }
+        }
+      };
+
+      const saveComment = () => {
+        const newComment = document.getElementById("newComment");
+        if (newComment.value.trim() != "") {
+          //check if user is logged in
+          const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+          if (loggedInUser) {
+            //get old blog posts
+            let hash = window.location.hash;
+            let blogId = hash.replaceAll("#blog", "");
+            const blogs = JSON.parse(localStorage.getItem("blogs")); // it should be an array
+            if (blogs[blogId]) {
+              //get old comments
+              const comments = blogs[blogId].comments;
+              comments.push({
+                comment: newComment.value,
+                username: loggedInUser.username,
+              });
+              //update comments
+              blogs[blogId].comments = comments;
+              localStorage.setItem("blogs", JSON.stringify(blogs));
+              newComment.value = "";
+              displayCommentsLength(blogs[blogId]);
+              displayComments(blogs[blogId]);
+            } else {
+              alert("You are commenting at invalid blog post");
+            }
+          } else {
+            alert(
+              "you must login first so that you can comment on this blog post."
+            );
+          }
+        } else {
+          newComment.focus();
+        }
+      };
+    </script>
   </body>
 </html>

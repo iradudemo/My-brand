@@ -144,6 +144,9 @@ a {
 .small-col .sub-small {
   margin-top: 6vh;
 }
+.moblie-toggle {
+  visibility: hidden;
+}
 .sub-small button {
   background: #daa520;
   border: none;
@@ -525,6 +528,9 @@ span .mda {
 .rem i {
   font-size: 20vw;
 }
+.form-control {
+  display: flex;
+}
 .form-control i {
   position: absolute;
   margin-top: -30px;
@@ -550,6 +556,10 @@ span .mda {
 }
 .form-control input {
   border: 2px solid #e3e3e3;
+  margin-left: 20px;
+}
+.form-control input[type='email'] {
+  margin-left: 60px;
 }
 .form-control.success input {
   border-color: #2ecc71;
@@ -608,6 +618,10 @@ span .mda {
   border-radius: 5px;
   color: #fff;
 }
+.sub-big span h2 {
+  margin: 10px 25%;
+}
+
 .main-contentz .main-main .image-content img {
   height: 100%;
   object-fit: cover;
@@ -726,6 +740,41 @@ span .mda {
 } */
 /* So{cial links */
 @media only screen and (max-width: 600px) {
+  .container {
+    height: auto;
+  }
+  .container .main-contents > .big-col {
+    width: 100%;
+  }
+  .container .main-content {
+    height: auto;
+  }
+  .sub-big .part2 {
+    margin: 5% 5% 0 5%;
+    text-align: justify;
+  }
+  .sub-big button {
+    font-size: 20px;
+    width: 60%;
+  }
+
+  .centa {
+    visibility: hidden;
+  }
+  .small-col img {
+    margin-top: -70px;
+    height: 150px;
+    width: 150px;
+    margin-left: 65%;
+  }
+  .sub-small button {
+    width: 230px;
+    color: #fff;
+    height: fit-content;
+    margin-left: 50%;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
   .header ul {
     display: flex;
     flex-direction: column;
@@ -733,6 +782,8 @@ span .mda {
 
   .container .main-contents {
     flex-direction: column;
+    height: 90vh;
+    overflow-x: hidden;
   }
 
   .rem i {
@@ -746,5 +797,91 @@ span .mda {
   }
   .main-contentz {
     flex-direction: column;
+  }
+  .button-block {
+    border-radius: 2px;
+    bottom: -70px;
+    width: 100%;
+    left: 0;
+  }
+  .footer {
+    width: 100%;
+    bottom: -118px;
+    padding: 0.02vw 15vw;
+  }
+  .social a i {
+    font-size: 13px;
+  }
+  .sub-big .part2 {
+    width: 96vw;
+  }
+  .skillz {
+    width: 200vw;
+    margin-left: -35px;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 35em) {
+  button:hover {
+    background-color: transparent;
+  }
+  .container .header .tabs .navigator {
+    position: fixed;
+    z-index: 1111;
+    inset: 0 0 65% 60%;
+    background: hsla(0, 0%, 100%, 0.1);
+    padding: 5rem 2em;
+    margin-right: -90px;
+    backdrop-filter: blur(0.2rem);
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out;
+  }
+  .container .header .tabs .navigator[data-visible='true'] {
+    transform: translateX(0%);
+  }
+
+  @supports (backdrop-filter: blur(0.2rem)) {
+    .container .header .tabs ul {
+      backdrop-filter: blur(0.2rem);
+    }
+  }
+  .moblie-toggle {
+    visibility: visible;
+    position: absolute;
+    z-index: 9999;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    background: url('/images/icons/menu.png');
+    background-size: cover;
+    top: 0rem;
+    right: 0.7rem;
+  }
+  .moblie-toggle[aria-expanded='true'] {
+    background: url('/images/icons/multiply.png');
+    background-size: cover;
+  }
+}
+@media (min-width: 1024px) {
+  .button-block {
+    position: relative;
+    bottom: 0;
+  }
+  .sub-small button {
+    font-size: 15px;
+    padding: 5px 30px;
+    width: 60%;
+  }
+  .sub-big .part2 {
+    margin: 1% 5%;
+  }
+  .small-col img {
+    margin: 0 10%;
+  }
+  .html img {
+    height: 60px;
+  }
+  .html img:nth-last-child(1) {
+    margin-left: 0;
   }
 }

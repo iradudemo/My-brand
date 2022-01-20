@@ -17,15 +17,22 @@
     <div class="container">
       <div class="header">
         <div class="logo">My brand</div>
+        <button
+          class="moblie-toggle"
+          aria-controls="navigator"
+          aria-expanded="false"
+        >
+          <span class="menu-btn"></span>
+        </button>
         <div class="tabs">
-          <ul>
+          <ul id="navigator" class="navigator" data-visible="false">
             <li class="active">Home</li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html"> Contact</a></li>
+            <li><a aria-hidden="true" href="about.html">About</a></li>
+            <li><a aria-hidden="true" href="contact.html"> Contact</a></li>
             <li>
-              <a href="blog.html"> Blog</a>
+              <a aria-hidden="true" href="blog.html"> Blog</a>
             </li>
-            <a href="login.html"
+            <a aria-hidden="true" href="login.html"
               ><li>
                 <img src="images/icons/icons8-login-100.png" /></li
             ></a>

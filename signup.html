@@ -139,8 +139,8 @@
       const isValidEmail =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
       const isValidFname = /^[a-zA-Z]+(?:(?:\. |[' ])[a-zA-Z]+)*$/;
-      const isValidLname = /^[a-zA-Z]{3,25}$/;
-      const isValidUname = /^[a-zA-Z0-9]{3,10}$/;
+      const isValidLname = /^[a-zA-Z]{5,25}$/;
+      const isValidUname = /^[a-zA-Z0-9]{5,10}$/;
 
       function checkInputs() {
         const fnameValue = fname.value;
@@ -321,7 +321,7 @@
             firstLastMsg.style.color = 'red';
             firstLastMsg.style.display = 'block';
             firstLastMsg.innerText =
-              'last name must have only char. 3 to 25 characters';
+              'last name must have only char. 5 to 25 characters';
             lastName.focus();
           }
         });

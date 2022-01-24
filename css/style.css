@@ -161,6 +161,7 @@ a {
 }
 button:hover {
   background-color: #815f07;
+  cursor: pointer;
 }
 .centa {
   border: 2px solid #daa520;
@@ -734,6 +735,130 @@ span .mda {
 #contactForm .part2 span {
   color: red;
   font-size: 15px;
+}
+.containers {
+  background: #3c3c42;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin: auto;
+  height: 450px;
+  width: 460px;
+  box-shadow: -3px -2px 6px #6c6565, 7px 9px 25px #0b0b0b;
+}
+form.signUp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signUp input {
+  height: 30px;
+  border: 2px solid #e1dede69;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #000;
+  background-color: #777272;
+  text-align: center;
+}
+.accept-box {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 15px;
+}
+input[type='checkbox'] {
+  margin-left: -150px;
+  margin-right: -90px;
+  padding: 0;
+}
+.form-username {
+  margin: 5px;
+  display: flex;
+  padding-bottom: 10px;
+}
+.form-username input {
+  margin: 0 5px;
+  width: 150px;
+}
+.form-item {
+  margin: 0 auto;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+}
+.form-item input {
+  margin: 5px;
+  border-color: #fff;
+  width: 100%;
+}
+.options a:hover {
+  color: #808080;
+}
+.accept-box a:hover {
+  color: #808080;
+}
+.form-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.form-btn button {
+  margin: auto;
+  font-size: 20px;
+  padding: 8px;
+  width: 300px;
+  color: rgb(75, 61, 61);
+  background: #fdeb45;
+}
+.form-btn button:disabled {
+  cursor: not-allowed;
+  color: rgb(131, 120, 120) !important;
+  background: #8f8b85 !important;
+}
+.form-btn button:hover {
+  background: #d88a0c;
+  color: #faebd7;
+}
+.options {
+  padding-top: 15px;
+  margin: auto;
+  font-size: 13px;
+}
+.password-format {
+  position: relative;
+  color: rgb(117, 115, 115);
+  background: rgba(0, 0, 0, 0.5);
+  width: auto;
+  padding: 2px;
+  margin: 5px 0 0 0;
+  border-radius: 5px;
+  top: 0;
+  right: -54px;
+  z-index: 2;
+  font-size: 13px;
+  display: none;
+}
+#firstLastMsg {
+  position: relative;
+  color: rgb(117, 115, 115);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px;
+  font-size: 13px;
+  border-radius: 5px;
+  top: -10px;
+  display: none;
+}
+.blink-txt {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 /* .rply-btn {
   display: flex;

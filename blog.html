@@ -67,17 +67,17 @@
     <script>
       window.onload = () => {
         //get blogs
-        const blogPostContainer = document.getElementById("blogPostContainer");
-        if (localStorage.getItem("blogs")) {
-          const blogs = JSON.parse(localStorage.getItem("blogs"));
-          blogPostContainer.innerHTML = "";
+        const blogPostContainer = document.getElementById('blogPostContainer');
+        if (localStorage.getItem('blogs')) {
+          const blogs = JSON.parse(localStorage.getItem('blogs'));
+          blogPostContainer.innerHTML = '';
           for (let i = 0; i < blogs.length; i++) {
             const post = `
               <div class="leftz">
                 <img src="images/${blogs[i].image}" alt="left image" />
                 <span class="title">${blogs[i].title}</span>
                 <p>${blogs[i].description}</p>
-                <button><a href="blog-details.html#blog${i}">read more</a></button>
+                <a href="blog-details.html#blog${i}"><button>read more</button></a>
               </div>
             `;
             blogPostContainer.innerHTML = blogPostContainer.innerHTML + post;
@@ -89,24 +89,24 @@
       };
 
       // //create a sample post
-      // const createSamplePost = () => {
-      //   const blogs = [
-      //     {
-      //       title: "book1",
-      //       image: "book.jpeg",
-      //       description: "this is a testing blog1",
-      //       comments: [{ username: "testing username", comment: "good book" }],
-      //     },
-      //     {
-      //       title: "book2",
-      //       image: "book.jpeg",
-      //       description: "this is a testing blog1",
-      //       comments: [],
-      //     },
-      //   ];
-      //   localStorage.setItem("blogs", JSON.stringify(blogs));
-      // };
-      // createSamplePost();
+      const createSamplePost = () => {
+        const blogs = [
+          {
+            title: 'book1',
+            image: 'book.jpeg',
+            description: 'this is a testing blog1',
+            comments: [{ username: 'testing username', comment: 'good book' }],
+          },
+          {
+            title: 'book2',
+            image: 'book.jpeg',
+            description: 'this is a testing blog1',
+            comments: [],
+          },
+        ];
+        localStorage.setItem('blogs', JSON.stringify(blogs));
+      };
+      createSamplePost();
     </script>
   </body>
 </html>

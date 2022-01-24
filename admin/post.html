@@ -52,7 +52,7 @@
             >
           </li>
           <li>
-            <a href="#"
+            <a onclick="handleLogout()"
               ><span class="icon"><i class="fa fa-sign-out"></i></span
               ><span class="title">Sign out</span></a
             >
@@ -124,67 +124,17 @@
           <div class="recentPosts">
             <div class="card-header">
               <h2>Recent Posts</h2>
-              <a href="#" class="btn">View all</a>
             </div>
             <table>
               <thead>
                 <tr>
                   <td>title</td>
                   <td>owner</td>
-                  <td>Views</td>
-                  <td>Status</td>
+                  <td>Comments</td>
+                  <td>Action</td>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status approved">approved</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status rejected">Rejected</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status reported">reported</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status reported">reported</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status reported">reported</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status reported">reported</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status reported">reported</span></td>
-                </tr>
-                <tr>
-                  <td>Kigali Iraka</td>
-                  <td>Jean Claude</td>
-                  <td>78</td>
-                  <td><span class="status pending">pending</span></td>
-                </tr>
-              </tbody>
+              <tbody id="postsContainer"></tbody>
             </table>
           </div>
           <div class="recent-users">
@@ -192,10 +142,10 @@
               <h2>Create a Post</h2>
             </div>
             <div class="new-post">
-              <form>
+              <form id="createPostForm">
                 <div class="form-control">
                   <label for="title">Title</label>
-                  <input type="text" id="PostTitle" placeholder="Post title" />
+                  <input type="text" id="postTitle" placeholder="Post title" />
                 </div>
                 <div class="form-control">
                   <label for="title">Description</label>
@@ -204,17 +154,10 @@
                     placeholder="Post description"
                   ></textarea>
                 </div>
-                <div class="upload">
-                  <input type="button" class="uploadButton" value="Browse" />
-                  <input
-                    type="file"
-                    name="upload"
-                    accept="image/*"
-                    id="imageUpload"
-                  />
-                  <span class="fileName">Select file..</span>
+                <div class="form-control">
+                  <label for="title">Image</label>
+                  <input type="text" id="postImage" placeholder="Post title" />
                 </div>
-                <input type="button" class="uploadButton" value="Upload File" />
 
                 <button type="submit">Create a post</button>
               </form>
@@ -233,6 +176,74 @@
         navigation.classList.toggle('active');
         main.classList.toggle('active');
       }
+    </script>
+    <script src="js/protect_admin.js"></script>
+    <script>
+      const handleLogout = () => {
+        localStorage.removeItem('loggedInUser');
+        window.location.reload();
+      };
+      document
+        .getElementById('createPostForm')
+        .addEventListener('submit', (e) => {
+          e.preventDefault();
+          const postTitle = document.getElementById('postTitle');
+          const postDescription = document.getElementById('postDescription');
+          const postImage = document.getElementById('postDescription');
+          const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+          if (
+            postTitle.value.trim() != '' &&
+            postDescription.value.trim() != '' &&
+            postImage.value.trim() != ''
+          ) {
+            if (localStorage.getItem('blogs')) {
+              let oldPosts = JSON.parse(localStorage.getItem('blogs'));
+              oldPosts.push({
+                title: postTitle.value,
+                image: postImage.value,
+                description: postDescription.value,
+                owner: loggedInUser.username,
+                comments: [],
+              });
+              localStorage.setItem('blogs', JSON.stringify(oldPosts));
+              document.getElementById('createPostForm').reset();
+              getAllBlogs();
+            } else {
+              const blog = [
+                {
+                  title: postTitle.value,
+                  image: postImage.value,
+                  description: postDescription.value,
+                  owner: loggedInUser.username,
+                  comments: [],
+                },
+              ];
+              localStorage.setItem('blogs', JSON.stringify(blog));
+              document.getElementById('createPostForm').reset();
+              getAllBlogs();
+            }
+          } else {
+            postTitle.focus();
+          }
+        });
+
+      const getAllBlogs = () => {
+        const blogs = JSON.parse(localStorage.getItem('blogs'));
+
+        for (let i = 0; i < blogs.length; i++) {
+          document.getElementById('postsContainer').innerHTML += `
+          <td>${blogs[i].title}</td>
+          <td>${blogs[i].owner}</td>
+          <td>${blogs[i].comments.length}</td>
+          <td><button style='cursor:pointer;background:transparent;color:red;border:none;' title='delete this post' onclick="handleDeletePost(${i})"><i class="fa fa-trash"></i></button></td>
+          <td><button style='cursor:pointer;background:transparent;color:blue;border:none;' title='update this post''><i class='fa fa-edit'></i></button></td>
+          `;
+        }
+      };
+
+      window.onload = () => {
+        getAllBlogs();
+      };
     </script>
   </body>
 </html>

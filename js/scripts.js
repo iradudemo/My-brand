@@ -1,6 +1,8 @@
 const navigator = document.querySelector('.navigator');
 const toggle = document.querySelector('.moblie-toggle');
 
+
+
 toggle.addEventListener('click', () => {
   const visible = navigator.getAttribute('data-visible');
 
@@ -11,7 +13,6 @@ toggle.addEventListener('click', () => {
     navigator.setAttribute('data-visible', false);
     toggle.setAttribute('aria-expanded', false);
   }
-  console.log(visible);
 });
 
 const loginForm = document.getElementById('loginForm');
@@ -71,3 +72,5 @@ function loginFunc(e) {
     errorMsg.innerHTML = 'wrong password';
   }
 }
+
+

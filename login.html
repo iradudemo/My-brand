@@ -4,25 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Personal web | Andela</title>
+    <title>Login</title>
+    <style>
+      ::placeholder {
+        color: #000;
+      }
+      html {
+        background: #565656;
+        color: #fff;
+      }
+      body {
+        padding-top: 10vh;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
         <div class="logo">My brand</div>
+        <button
+          class="moblie-toggle"
+          aria-controls="navigator"
+          aria-expanded="false"
+        >
+          <span class="menu-btn"></span>
+        </button>
         <div class="tabs">
-          <ul>
-            <li><a href="index.html"> Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="blog.html"> Blog</a></li>
-            <a href="login.html"
-              ><li class="active">
+          <ul id="navigator" class="navigator" data-visible="false">
+            <li>Home</li>
+            <li><a aria-hidden="true" href="about.html">About</a></li>
+            <li><a aria-hidden="true" href="contact.html"> Contact</a></li>
+            <li>
+              <a aria-hidden="true" href="blog.html"> Blog</a>
+            </li>
+            <a aria-hidden="true" href="login.html"
+              ><li>
                 <img src="images/icons/login_yellow.png" /></li
             ></a>
           </ul>
@@ -41,446 +58,44 @@
           </svg>
         </div>
       </div>
-      <div class="main-contents">
-        <div class="big-col1">
-          <div class="sub-big1">
-            <div class="auth-design">
-              <center><span>SignUp here</span></center>
-              <div class="line" style="width: 10vw"></div>
-              <form
-                id="signupForm"
-                class="form"
-                onsubmit="event.preventDefault();"
-              >
-                <div class="form-control">
-                  <label for="firstname">Firstname</label>
-                  <input
-                    type="text"
-                    id="fname"
-                    placeholder="Enter First name"
-                  />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <label for="Lastname">Lastname</label>
-                  <input type="text" id="lname" placeholder="Enter Last name" />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" placeholder="Email" />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <label for="Isername">Username</label>
-                  <input
-                    type="text"
-                    id="username"
-                    placeholder="Enter Username"
-                  />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <label for="Password">Password</label>
-                  <input
-                    type="password"
-                    name="pwd"
-                    id="pwd"
-                    placeholder="Enter your password"
-                  />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <div class="form-control">
-                  <label for="cpwd">Confirm Password</label>
-                  <input
-                    type="password"
-                    name="pwd"
-                    id="cpwd"
-                    placeholder="Confirm your password"
-                  />
-                  <i class="fa fa-check"></i>
-                  <i class="fa fa-times-circle"></i>
-                  <small></small>
-                </div>
-                <button style="background-color: #daa520">SignUp</button>
-              </form>
-            </div>
-            <div class="dm1">
-              <p>or</p>
-              <span>SignUp with</span>
-              <div class="circle">
-                <img src="images/icons/google.png" alt="sin in with google" />
-              </div>
+
+      <div class="containers">
+        <h2>Login</h2>
+        <form action="" class="signUp-form" id="signupForm">
+          <!--  -->
+          <span id="firstLastMsg">hey</span>
+          <div class="form-item">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="your username*"
+              autocomplete="none"
+            />
+          </div>
+          <div class="form-item">
+            <input
+              type="password"
+              name="password"
+              id="pwd"
+              placeholder="Password*"
+            />
+
+            <span class="password-format"> 6-15 AlphaNumeric Characters </span>
+          </div>
+          <div class="accept-box">
+            <input type="checkbox" name="accept" class="accept" />
+            <p>I accept the<a href="#">Terms & condition</a></p>
+          </div>
+          <div class="form-btn">
+            <button type="submit" class="signup" disabled>Login</button>
+            <div class="options">
+              Don't have an account? <a href="signup.html">Signup here</a>
             </div>
           </div>
-          <!-- <div class="footer" style="margin-top: 20vh">
-            <p>Jean Claude Iradukunda @2021</p>
-          </div> -->
-        </div>
-        <div class="centa"></div>
-
-        <div class="small-col">
-          <div class="sub-small">
-            <span>Login</span>
-            <div class="login">
-              <form id="loginForm" method="post">
-                <div class="username">
-                  <label for="username">username</label>
-                  <input
-                    type="text"
-                    id="loginUsername"
-                    placeholder="username"
-                  />
-                  <small style="display: block"></small>
-                </div>
-
-                <div class="pwd">
-                  <label for="password">Password</label>
-                  <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Password"
-                  />
-                  <small style="display: block"></small>
-                </div>
-                <button onclick="">
-                  <span>Login</span>
-                </button>
-              </form>
-              <span>or use&nbsp;<a href="#">google</a>&nbsp;instead</span>
-            </div>
-            <div class="button-block">
-              <div class="social">
-                <a href="https://www.instagram.com/dem0_dem0" target="_blank"
-                  ><i class="fa fa-instagram"></i
-                ></a>
-              </div>
-              <div class="social">
-                <a
-                  href="https://twitter.com/J_Claudee?t=iO67FfKW3RTG8MxPdS6iMA&s=09"
-                  target="_blank"
-                  ><i class="fa fa-twitter"></i
-                ></a>
-              </div>
-              <div class="social">
-                <a
-                  href="https://www.facebook.com/iradukunda.jeanclaude.311"
-                  target="_blank"
-                  ><i class="fa fa-facebook"></i
-                ></a>
-              </div>
-              <div class="social">
-                <a href="https://github.com/iradudemo" target="_blank"
-                  ><i class="fa fa-github"></i
-                ></a>
-              </div>
-              <div class="social">
-                <a
-                  href="https://www.linkedin.com/in/iradukunda-jean-claude-5ab4751b7"
-                  target="_blank"
-                  ><i class="fa fa-linkedin"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
-
-    <script src="/js/scripts.js"></script>
-    <script>
-      //note
-      //we assume that user obj that will be stored in local storage  with
-      //a key of loggedInUser, will look like this:
-      // {
-      //   username:''
-      //   password:''
-      // }
-
-      //also,
-      //we will need another array for recording all users signed up
-      //it will look like this
-      // [
-      //     {
-      //     fname: '',
-      //     lname:'',
-      //     email:''
-      //     username:''
-      //     password:''
-      //   },{
-      //     fname: '',
-      //     lname:'',
-      //     email:''
-      //     username:''
-      //     password:''
-      //   }
-      // ]
-      //it is an array of objects. i.e. an array of user objects
-
-      //Last NOte
-      //we will store list of users signed up in a key of signedUpUsers key in localstorage
-      const emailFormats =
-        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-      // const usernameFormat = /^[a-zA-Z0-9]+$/;
-      window.onload = () => {
-        const checkUserLoginStatus = () => {
-          if (localStorage.loggedInUser) {
-            if (localStorage.loggedInUser.username.trim() != '') {
-              console.log(localStorage.loggedInUser);
-              // alert('user already logged in'); // removed temporary
-            } else {
-              //username can not be empty
-              //so, clear everything for our loggedInUser obj
-              localStorage.removeItem('loggedInUser');
-            }
-          } else {
-            console.log('No user who is logged');
-          }
-        };
-      };
-
-      const signupForm = document.getElementById('signupForm');
-
-      const fname = document.getElementById('fname');
-      const lname = document.getElementById('lname');
-      const email = document.getElementById('email');
-      const username = document.getElementById('username');
-      const password = document.getElementById('pwd');
-      const cPassword = document.getElementById('cpwd');
-      //lets handle signup form
-      //check if your signup form has an id of signupForm
-      //otherwise make some modifications
-
-      function checkInputs() {
-        const fnameValue = fname.value;
-        const lnamevalue = lname.value;
-        const emailValue = email.value;
-        const usernameValue = username.value;
-        const passwordValue = password.value;
-        const cPasswordValue = cPassword.value;
-
-        if (fnameValue.trim() === '') {
-          setErrorFor(fname, "First name can't be  empty");
-          fname.focus();
-          return false;
-        } else {
-          setSuccessFor(fname);
-        }
-        if (lnamevalue.trim() === '') {
-          setErrorFor(lname, "Second name can't be empty");
-          lname.focus();
-          return false;
-        } else {
-          setSuccessFor(lname);
-        }
-        if (emailValue.trim() === '') {
-          setErrorFor(email, "email can't be empty");
-          email.focus();
-          return false;
-        } else if (!isEmail(emailValue)) {
-          setErrorFor(email, 'type valid Email');
-          email.focus();
-          return false;
-        } else {
-          setSuccessFor(email);
-        }
-        if (usernameValue === '') {
-          setErrorFor(username, "Username can't be empty");
-          username.focus();
-          return false;
-        }
-        //  else if (!isUsername(usernameValue)) {
-        //   setErrorFor(username, 'start with char. no special char');
-        // }
-        else {
-          setSuccessFor(username);
-        }
-        if (passwordValue === '') {
-          setErrorFor(password, "password can't be empty");
-          password.focus();
-          return false;
-        } else {
-          setSuccessFor(password);
-        }
-        if (cPasswordValue === '') {
-          setErrorFor(cPassword, "Password can't be empty");
-          cPassword.focus();
-          return false;
-        } else if (passwordValue !== cPasswordValue) {
-          setErrorFor(cPassword, 'Passwords not match');
-          cPassword.focus();
-          return false;
-        } else {
-          setSuccessFor(cPassword);
-        }
-
-        return true;
-      }
-
-      function setErrorFor(input, message) {
-        const formControl = input.parentElement; //  here the parennnt is .form-control
-        const small = formControl.querySelector('small');
-        // add error message inside small
-        small.innerText = message;
-
-        //error class  added
-        formControl.className = 'form-control error';
-      }
-      function setSuccessFor(input) {
-        const formControl = input.parentElement;
-        // small.innerText = message;
-        formControl.className = 'form-control success';
-      }
-      function isEmail(email) {
-        return emailFormats.test(email);
-      }
-      // function isUsername() {
-      //   return usernameFormat.test(username);
-      // }
-      signupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (checkInputs()) {
-          const newUser = {
-            fname: fname.value,
-            lname: lname.value,
-            email: email.value,
-            username: username.value,
-            password: password.value,
-          };
-
-          //on line below, we are making some checking to avoid errors
-          if (localStorage.signedUpUsers) {
-            //mean there are other users who have previously signed up
-            //we cant errase them
-            //we are going to add the new user to them.
-
-            ////step 1
-            //check if user already exists in our local storage
-            //step1.1
-            //get signedup users.
-            const signedUpUsers = JSON.parse(
-              localStorage.getItem('signedUpUsers')
-            );
-
-            //step 1.2
-            //check if user exist in returned array
-            let found = false;
-            for (let i = 0; i < signedUpUsers.length; i++) {
-              if (signedUpUsers[i].username == newUser.username) {
-                found = true;
-                break;
-              }
-            }
-            if (found) {
-              alert('username already exists!');
-            } else {
-              //save new user
-              //step 1
-              //add new user to other users we have
-              signedUpUsers.push(newUser);
-
-              //step 2
-              //stringfy the arra
-              const arrayTobeSaved = JSON.stringify(signedUpUsers);
-
-              //step 3
-              //save the users arry into localstorage
-              localStorage.setItem('signedUpUsers', arrayTobeSaved);
-              //reset the form
-              document.getElementById('signupForm').reset();
-              alert('signed up successful');
-            }
-          } else {
-            //means we dont have other users who signed up before.
-            //lets save our new user.
-            //remember
-            //signedUpUsers must me an array
-            //and it is impossible to store arrays in local storage
-            //i.e. all local storage values and keys must be strings.
-            //so, we will create an array and convert it into a string.
-
-            //step 1
-            //create an array and add new user
-            const myArray = [newUser];
-
-            //step 2
-            //stringfy the myArray
-            const arrayTobeSaved = JSON.stringify(myArray);
-
-            //step 3
-            //save the user arry into localstorage
-            localStorage.setItem('signedUpUsers', arrayTobeSaved);
-
-            //reset the form (final step)
-            document.getElementById('signupForm').reset();
-            alert('signed up successful');
-          }
-        }
-      });
-
-      //TODO
-      //you will have to work on login
-      //Trick is to go into the list of saved users and check if
-      //username and password == to the ones on the signup form.
-      //if yes, store the data in loggedInUser obj
-
-      //TODO 2
-      //how to logout?
-      //simply clear loggedInUser key form localstorage.
-
-      document.getElementById('loginForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const username = document.getElementById('loginUsername');
-        const password = document.getElementById('loginPassword');
-        const oldSignedUpUsers = JSON.parse(
-          localStorage.getItem('loggedInUser')
-        );
-        if (oldSignedUpUsers) {
-          alert(
-            'Already logged in as ' +
-              oldSignedUpUsers.username +
-              '\nYou must logout inorder to continue'
-          );
-        } else if (username.value.trim() != '' && password.value.trim() != '') {
-          const signedUpUsers = JSON.parse(
-            localStorage.getItem('signedUpUsers')
-          );
-          let found = false;
-          for (let i = 0; i < signedUpUsers.length; i++) {
-            if (
-              signedUpUsers[i].username == username.value &&
-              signedUpUsers[i].password == password.value
-            ) {
-              found = true;
-              break;
-            }
-          }
-          if (found) {
-            const loggedInUser = {
-              username: username.value,
-              password: password.value,
-            };
-            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-            alert('logged in successfull');
-            window.location('blog.html');
-          } else {
-            alert('Invalid username or password');
-          }
-        } else {
-          username.focus();
-        }
-      });
-    </script>
+    <script></script>
   </body>
 </html>
